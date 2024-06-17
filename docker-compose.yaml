@@ -1,0 +1,10 @@
+version: '3'
+services:
+  zemi-python-modules:
+    restart: always
+    build: .
+    container_name: 'kishida-zemi'
+    working_dir: '/root/srcs'
+    tty: true #tty is nani
+    volumes:
+      - ./srcs:/root/srcs
