@@ -13,8 +13,8 @@ DATA_PATH = 'Data/' #データのディレクトリを指定
 encoding = 'utf-8' #文字コード　→シフトJISは'shift_jis'（非推奨）
 orgfile = DATA_PATH + 'Demo_textdata2.csv' #入力ファイル（語分割前の元の文）
 infile = DATA_PATH + 'Demo_textdata3b.csv' #入力ファイル（1行に1文書の語の集合）
-# infile2 = DATA_PATH + 'user_input_data3b.csv' #入力ファイル(語分割後の集合)
-ansfile = DATA_PATH + 'Demo_answer.csv' # 'ans_test.csv' #'Demo_answer.csv' #正解ラベルファイル
+infile2 = DATA_PATH + 'user_input_data3b.csv' #入力ファイル(語分割後の集合)
+ansfile = DATA_PATH + 'ans_v2.csv' #'ans_test.csv' # 'ans_test.csv' #'Demo_answer.csv' #正解ラベルファイル
 rstfile = DATA_PATH + 'Demo_classpred.csv' #評価データの予測と正解を格納
 random_seed = 123 #乱数のシード：これを変更すると結果が変わる
 p_tr = 0.70 #訓練データの割合 -> 1.00
@@ -48,6 +48,15 @@ with open(infile, 'r', encoding='utf_8_sig') as f: # infile2で読んだcorpus�
     reader = csv.reader(f)
     for row in reader:
         corpus.append([w for w in row if len(w) > 0])
+
+# ============ infle2 =================
+x3 = []
+with open(infile2, 'r', encoding='utf_8_sig') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        x3.append([w for w in row if len(w) > 0])
+y3 = [0 for i in range (len(x3))]
+# =========================================
 print(f'文書件数 = {len(corpus)} in ファイル{infile}')
 np.random.seed(random_seed) #乱数のシードの設定
 by_class = collections.defaultdict(list) #正解ラベルごとのデータのリスト

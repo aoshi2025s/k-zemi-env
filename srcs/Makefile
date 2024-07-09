@@ -1,6 +1,8 @@
 make:
 	python main01_ReadCsvFile.py
+	python user_input_data_read_csv.py
 	python main02_IndexingByJanome.py
+	python user_input_data_indexing_janome.py
 	python main03_SVM_sLB.py
 
 lda:
