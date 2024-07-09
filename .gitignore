@@ -1,3 +1,7 @@
 .DS_Store
 .vscode/
-srcs/
+srcs/Data/
+poetry.lock
+pyproject.toml
+.venv/
+__pycache__/
